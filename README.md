@@ -8,13 +8,13 @@ Static site hosted on GitHub Pages. Everything served lives in `site/`.
 docker compose up
 ```
 
-Open http://localhost:8080. `site/` is mounted live, so just refresh after edits.
+Open http://localhost:8081. `site/` is mounted live, so just refresh after edits.
 
 Alternatively, build a standalone image (mirrors what gets deployed):
 
 ```sh
 docker build -t paint4shell .
-docker run --rm -p 8080:80 paint4shell
+docker run --rm -p 8081:80 paint4shell
 ```
 
 ## Deploy
