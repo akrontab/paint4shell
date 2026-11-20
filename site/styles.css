@@ -11,43 +11,45 @@ html, body {
 .container {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 24px;
   padding: 16px;
 }
 
+.equation {
+  width: min(70%, 320px);
+  height: auto;
+}
+
+/* Terminal-window chrome around each iframe */
 .frame {
-  flex: 1 1 0;
+  width: 100%;
   max-width: 768px;
-  aspect-ratio: 16 / 9;
+  background: #1e1e1e;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+}
+
+/* Title bar with the three window buttons */
+.frame::before {
+  content: "";
+  display: block;
+  height: 30px;
+  background:
+    radial-gradient(circle at 18px 50%, #ff5f56 6px, transparent 6.5px),
+    radial-gradient(circle at 38px 50%, #ffbd2e 6px, transparent 6.5px),
+    radial-gradient(circle at 58px 50%, #27c93f 6px, transparent 6.5px),
+    linear-gradient(#3a3a3a, #2c2c2c);
+  border-bottom: 1px solid #111;
 }
 
 .frame iframe {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   border: 0;
   display: block;
-}
-
-.equation {
-  flex: 0 0 auto;
-  width: clamp(160px, 18vw, 320px);
-  height: auto;
-}
-
-/* Stack vertically on narrow screens */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .frame {
-    width: 100%;
-    flex: none;
-  }
-
-  .equation {
-    width: min(70%, 320px);
-  }
+  background: #000;
 }
